@@ -1,7 +1,8 @@
 ## Atbash Cipher
 
-A folding cipher works similar to the ROT13 cipher that we did, except that the mappings are done by "folding the alphabet." This way, "a" maps to "z", "b" maps to "y", "c" maps to "x", and so on.
+A folding cipher where the mappings are done by "folding the alphabet." This way, "a" maps to "z", "b" maps to "y", "c" maps to "x", and so on.
 
+[https://en.wikipedia.org/wiki/Atbash](https://en.wikipedia.org/wiki/Atbash)
 ```
 Plain:    abcdefghijklmnopqrstuvwxyz
 Cipher:   zyxwvutsrqponmlkjihgfedcba
