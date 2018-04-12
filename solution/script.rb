@@ -1,13 +1,13 @@
 class Cipher
-    @@forward = "abcdefghijklmnopqrstuvwxyz"
-    @@reverse = "zyxwvutsrqponmlkjihgfedcba"
+    @@😁 = "abcdefghijklmnopqrstuvwxyz"
+    @@😵 = "zyxwvutsrqponmlkjihgfedcba"
 
     def self.encode(word)
-        word.gsub(/./) {|c| @@reverse[@@forward.index(c)]}
+        word.gsub(/./) {|c| @@😵[@@😁.index(c)]}
     end
 
     def self.decode(word)
-        word.gsub(/./) {|c| @@forward[@@reverse.index(c)]}
+        self.encode(word) # the map is a self-inverting one...
     end
 end
 
