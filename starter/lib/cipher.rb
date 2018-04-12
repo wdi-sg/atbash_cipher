@@ -11,11 +11,7 @@ class Cipher
 		input.split(/\W+/).each{|word|
 			charArray = word.split("")
 			charArray.map!{|char|
-				if status == "encode"
-					char = encode(char)
-				elsif status == "decode"
-					char = decode(char)
-				end
+				status == "encode" ? (char = encode(char)) : status == "decode" ? (char = decode(char)) :(puts "wrong status. use encode or decode")
 			}
 			output += charArray.join("") + " "
 		}
@@ -24,17 +20,13 @@ class Cipher
 
 	def encode(char)
 		@plain.each_with_index.map{|letter,idx|
-			if(letter == char)
-				return char = @crypted[idx]
-			end
+			return char = @crypted[idx] if (letter == char) 
 		}
 	end
 
 	def decode(char)
 		@crypted.each_with_index.map{|letter,idx|
-			if(letter == char)
-				return char = @plain[idx]
-			end
+			return char = @plain[idx] if (letter == char) 
 		}
 	end
 end
