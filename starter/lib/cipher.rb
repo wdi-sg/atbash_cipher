@@ -1,61 +1,41 @@
-require 'byebug'
-
 class Cipher
-	attr_accessor :plain, :output
-
 	def initialize
 		@plain = ('a'..'z').to_a
-		@output = ('a'..'z').to_a.reverse!
+		@crypted = ('a'..'z').to_a.reverse!
 	end
 
 	#status refers to encode or decode
 	def crypt(input,status)
 		puts "input: #{input}"
-		#split the input into array of words
-		wordArray = input.split(/\W+/)
-
-		i = 0
-		while i<wordArray.length
-			#loop through the letters of each word
-			charArray = wordArray[i].split("")
-			k = 0
-			while k<charArray.length
+		output = ""	
+		input.split(/\W+/).each{|word|
+			charArray = word.split("")
+			charArray.map!{|char|
 				if status == "encode"
-					charArray[k] = encode(charArray[k])
+					char = encode(char)
 				elsif status == "decode"
-					charArray[k] = decode(charArray[k])
+					char = decode(char)
 				end
-				k+= 1
-			end
-			wordArray[i] = charArray.join("")
-			i+= 1
-		end
-		output = wordArray.join(' ')
+			}
+			output += charArray.join("") + " "
+		}
 		puts "output: #{output}"
 	end	
 
 	def encode(char)
-		i = 0
-		while i<@plain.length
-			if(@plain[i] == char)
-				return char = @output[i]
-				# puts ("char change inside loop: #{char}")
-				break
+		@plain.each_with_index.map{|letter,idx|
+			if(letter == char)
+				return char = @crypted[idx]
 			end
-			i+= 1
-		end
+		}
 	end
 
 	def decode(char)
-		i = 0
-		while i<output.length
-			if(@output[i] == char)
-				return char = @plain[i]
-				# puts ("char change inside loop: #{char}")
-				break
+		@crypted.each_with_index.map{|letter,idx|
+			if(letter == char)
+				return char = @plain[idx]
 			end
-			i+= 1
-		end
+		}
 	end
 end
 
