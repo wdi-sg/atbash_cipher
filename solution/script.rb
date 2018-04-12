@@ -1,12 +1,15 @@
-$forward = "abcdefghijklmnopqrstuvwxyz"
-$reverse = "zyxwvutsrqponmlkjihgfedcba"
+class Cipher
+    @@forward = "abcdefghijklmnopqrstuvwxyz"
+    @@reverse = "zyxwvutsrqponmlkjihgfedcba"
 
-def encode(word)
-    word.gsub(/./) {|c| $reverse[$forward.index(c)]}
+    def self.encode(word)
+        word.gsub(/./) {|c| @@reverse[@@forward.index(c)]}
+    end
+
+    def self.decode(word)
+        word.gsub(/./) {|c| @@forward[@@reverse.index(c)]}
+    end
 end
 
-def decode(word)
-    word.gsub(/./) {|c| $forward[$reverse.index(c)]}
-end
-
-puts encode("hello world")
+puts Cipher.encode("hello")
+puts Cipher.encode("peter")
