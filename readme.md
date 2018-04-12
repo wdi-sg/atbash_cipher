@@ -20,3 +20,5 @@ Cipher.encode("peter")
 => "kvgvi"
 
 ```
+## Further
+For the class Cipher, implement a class method `decode` that takes a word as an argument returns the decoded word
