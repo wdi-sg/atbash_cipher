@@ -1,12 +1,8 @@
-ALPHABET = ('a'..'z').to_a
-
 # A folding cipher where the mappings are done by "folding the alphabet."
 class Cipher
   def self.encode(word)
-    result = []
-    word.downcase.each_char do |char|
-      index = ALPHABET.length - 1 - ALPHABET.index(char)
-      result << ALPHABET[index]
+    result = word.downcase.split('').map do |char|
+      ('a'.ord + 'z'.ord - char.ord).chr
     end
     result.join
   end
