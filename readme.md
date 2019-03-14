@@ -8,17 +8,20 @@ Plain:    abcdefghijklmnopqrstuvwxyz
 Cipher:   zyxwvutsrqponmlkjihgfedcba
 ```
 
-For the class Cipher, implement a class method `encode` that takes a word as an argument returns the encoded word
 
 Example usage:
 
 ```
-Cipher.encode("hello")
-=> "svool"
+"hello" => "svool"
 
-Cipher.encode("peter")
-=> "kvgvi"
+"peter" => "kvgvi"
 
 ```
 ## Further
-For the class Cipher, implement a class method `decode` that takes a word as an argument returns the decoded word
+Implement `decode` funcionality.
+
+## Further
+Prompt the user for input and encode that inout.
+
+## Further
+Prompt the user for input and then see if they want to either encode or decode that input.
